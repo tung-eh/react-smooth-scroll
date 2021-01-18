@@ -1,8 +1,17 @@
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React from 'react'
+
+import Home from './pages/Home'
+import Navbar from './components/Navbar'
+
 function App() {
   return (
-    <div className="grid  min-h-screen">
-      <h1 className="font-bold text-2xl">Hello world</h1>
-    </div>
+    <Router>
+      <Navbar />
+      <Route exact path="/">
+        <Home />
+      </Route>
+    </Router>
   )
 }
 
