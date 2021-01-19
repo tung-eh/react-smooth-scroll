@@ -4,7 +4,8 @@ import HeroSection from './HeroSection'
 
 const Home = () => (
   <div>
-    <HeroSection /> <div>Other section</div>
+    <HeroSection />
+    <div>Other section</div>
   </div>
 )
 

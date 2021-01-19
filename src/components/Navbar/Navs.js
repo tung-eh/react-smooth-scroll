@@ -1,5 +1,5 @@
 import { Link as ScrollLink } from 'react-scroll'
-import { Link } from 'react-router-dom'
+import React from 'react'
 
 const navs = [
   {
@@ -20,12 +20,12 @@ const navs = [
   },
 ]
 
-const Navs = ({ mobileHidden, toggle = () => {} }) => (
+const Navs = ({ webOnly, toggle = () => {} }) => (
   <>
     <div
       className={`${
-        mobileHidden ? 'hidden md:grid' : 'grid'
-      } md:grid-flow-col text-center text-xl md:text-base gap-8 md:gap-6`}
+        webOnly ? 'hidden md:grid absolute' : 'grid'
+      } md:grid-flow-col text-center text-xl md:text-base gap-8`}
     >
       {navs.map(({ to, text }) => (
         <ScrollLink className="hover:text-green-500" to={to} onClick={toggle}>
@@ -33,14 +33,6 @@ const Navs = ({ mobileHidden, toggle = () => {} }) => (
         </ScrollLink>
       ))}
     </div>
-    <Link
-      className={`${
-        mobileHidden ? 'hidden md:block' : ''
-      } rounded-full transition-colors bg-green-500 hover:bg-white text-gray-900 text-sm py-3 px-14`}
-      to="/signin"
-    >
-      Sign In
-    </Link>
   </>
 )
 
