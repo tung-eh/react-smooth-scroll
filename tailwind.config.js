@@ -9,8 +9,9 @@ module.exports = {
         sans: ['"Encode Sans Expanded"', 'sans-serif'],
       },
       colors: {
-        gray: colors.trueGray,
         green: colors.green,
+        black: '#010606',
+        white: '#f9f9f9',
       },
     },
   },
