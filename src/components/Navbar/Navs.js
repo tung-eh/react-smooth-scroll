@@ -20,12 +20,12 @@ const navs = [
   },
 ]
 
-const Navs = ({ webOnly, toggle = () => {} }) => (
+const Navs = ({ md, toggle = () => {} }) => (
   <>
     <div
       className={`${
-        webOnly ? 'hidden md:grid absolute' : 'grid'
-      } md:grid-flow-col text-center text-xl md:text-base gap-8`}
+        md ? 'hidden md:grid absolute' : 'grid'
+      } md:grid-flow-col text-center text-xl md:text-base gap-10`}
     >
       {navs.map(({ to, text }) => (
         <ScrollLink className="hover:text-green-500" to={to} onClick={toggle}>

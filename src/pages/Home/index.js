@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Button from '../../components/Navbar/Button'
+import Button from '../../components/Button'
 import HeroSection from './HeroSection'
 import InfoSection from './InfoSection'
 import ServicesSection from './ServicesSection'

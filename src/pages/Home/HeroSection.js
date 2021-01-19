@@ -2,7 +2,7 @@ import { Link } from 'react-scroll'
 import { MdKeyboardArrowRight, MdArrowForward } from 'react-icons/md'
 import React from 'react'
 
-import Button from '../../components/Navbar/Button'
+import Button from '../../components/Button'
 import heroVideo from '../../videos/video.mp4'
 
 const HeroSection = () => (
