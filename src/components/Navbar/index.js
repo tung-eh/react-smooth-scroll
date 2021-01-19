@@ -1,6 +1,7 @@
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
+import { animateScroll as scroll } from 'react-scroll'
 
 import Button from '../Button'
 import Navs from './Navs'
@@ -12,11 +13,11 @@ const Navbar = () => {
   const [heroin, setHeroin] = useState(true) //inside Hero section
   useEffect(() => {
     const ioOptions = {
-      threshold: Array.from(Array(11).keys()).map((x) => x * 0.1),
+      threshold: 0.75,
     }
     const ioCallback = (entries, observer) => {
       const entry = entries[0]
-      setHeroin(entry.isIntersecting && entry.intersectionRatio > 0.7)
+      setHeroin(entry.isIntersecting)
     }
 
     const observer = new IntersectionObserver(ioCallback, ioOptions)
@@ -31,7 +32,11 @@ const Navbar = () => {
     >
       <Navs md />
       <div className="flex items-center justify-between w-full max-w-screen-xl px-8">
-        <Link className="font-bold text-2xl" to="/">
+        <Link
+          className="font-bold text-2xl"
+          to="/"
+          onClick={() => scroll.scrollToTop()}
+        >
           dolla
         </Link>
         <Link className="hidden md:block" to="/signin">

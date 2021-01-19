@@ -1,4 +1,7 @@
+import { Link } from 'react-scroll'
 import React from 'react'
+
+import Button from '../../components/Button'
 
 const InfoSection = ({
   id,
@@ -8,7 +11,7 @@ const InfoSection = ({
   topline,
   headline,
   description,
-  children,
+  button,
 }) => {
   return (
     <div
@@ -27,7 +30,9 @@ const InfoSection = ({
             {headline}
           </h1>
           <p className="max-w-lg md:text-xl mb-8">{description}</p>
-          {children}
+          <Link to="hero" smooth>
+            <Button variant={darkTheme ? 'primary' : 'dark'}>{button}</Button>
+          </Link>
         </div>
         {!imageFirst && <img src={image} alt="info" />}
       </div>

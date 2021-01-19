@@ -1,5 +1,5 @@
 import { Link as ScrollLink } from 'react-scroll'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const navs = [
   {
@@ -20,20 +20,51 @@ const navs = [
   },
 ]
 
-const Navs = ({ md, toggle = () => {} }) => (
-  <>
-    <div
-      className={`${
-        md ? 'hidden md:grid absolute' : 'grid'
-      } md:grid-flow-col text-center text-xl md:text-base gap-10`}
+const NavLink = ({ to, text, ...props }) => {
+  const [active, setActive] = useState(false)
+
+  useEffect(() => {
+    const ioOptions = {
+      threshold: 0.5,
+    }
+    const ioCallback = (entries, observer) => {
+      const entry = entries[0]
+      setActive(entry.isIntersecting)
+    }
+
+    const observer = new IntersectionObserver(ioCallback, ioOptions)
+    observer.observe(document.querySelector(`#${to}`))
+  }, [to])
+
+  return (
+    <ScrollLink
+      className={`cursor-pointer hover:text-green-500 p-2 ${
+        active ? 'border-b-2 border-green-500' : ''
+      }`}
+      smooth
+      offset={-80}
+      to={to}
+      {...props}
     >
-      {navs.map(({ to, text }) => (
-        <ScrollLink className="hover:text-green-500" to={to} onClick={toggle}>
-          <button>{text}</button>
-        </ScrollLink>
-      ))}
-    </div>
-  </>
-)
+      {text}
+    </ScrollLink>
+  )
+}
+
+const Navs = ({ md, toggle = () => {} }) => {
+  return (
+    <>
+      <div
+        className={`${
+          md ? 'hidden md:grid absolute' : 'grid'
+        } md:grid-flow-col text-center text-xl md:text-base gap-6 md:gap-10`}
+      >
+        {navs.map((nav) => (
+          <NavLink {...nav} onClick={toggle} />
+        ))}
+      </div>
+    </>
+  )
+}
 
 export default Navs

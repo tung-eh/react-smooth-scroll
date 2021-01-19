@@ -9,14 +9,14 @@ import Signin from './pages/Signin'
 function App() {
   return (
     <Router>
-      <Navbar />
       <Route exact path="/">
+        <Navbar />
         <Home />
+        <Footer />
       </Route>
       <Route exact path="/signin">
         <Signin />
       </Route>
-      <Footer />
     </Router>
   )
 }

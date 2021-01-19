@@ -30,7 +30,7 @@ const HeroSection = () => (
         Sign up for a new account today and receive $250 in credit towards your
         next payment
       </p>
-      <Link to="signup">
+      <Link to="signup" smooth offset={-80}>
         <Button className="group">
           <span className="mr-2">Get started</span>
           <MdKeyboardArrowRight className="inline group-hover:hidden w-4 h-4" />

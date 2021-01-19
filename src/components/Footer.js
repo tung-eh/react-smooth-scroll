@@ -49,7 +49,7 @@ const Footer = () => {
           <Section {...section} />
         ))}
       </div>
-      <div className="font-bold text-2xl mb-4">dolla</div>
+      <div className="cursor-default font-bold text-2xl mb-4">dolla</div>
       <div className="text-xs mb-4">dolla © 2020 All rights reversed.</div>
       <div className="grid grid-cols-5 gap-4 text-2xl">
         <FaFacebook />

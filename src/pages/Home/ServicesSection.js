@@ -1,7 +1,8 @@
 import React from 'react'
+
+import benefitImg from '../../images/undraw_personal_finance.svg'
 import carImg from '../../images/undraw_off_road.svg'
 import onlineImg from '../../images/undraw_online_information.svg'
-import benefitImg from '../../images/undraw_personal_finance.svg'
 
 const services = [
   {
