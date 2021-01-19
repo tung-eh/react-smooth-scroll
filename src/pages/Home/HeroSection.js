@@ -6,9 +6,9 @@ import Button from '../../components/Navbar/Button'
 import heroVideo from '../../videos/video.mp4'
 
 const HeroSection = () => (
-  <div className="relative">
+  <div className="relative" id="hero">
     <video
-      className="h-screen w-full object-cover"
+      className="h-screen w-full object-cover bg-gray-900"
       autoPlay
       loop
       muted
@@ -19,10 +19,10 @@ const HeroSection = () => (
       className="absolute w-full h-full top-0 left-0"
       style={{
         background:
-          'linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%) linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, trasparent 100%)',
+          'linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%)',
       }}
     />
-    <div className="absolute w-full h-full top-0 left-0 flex flex-col items-center justify-center text-white text-center px-10 pt-20">
+    <div className="absolute w-full h-full top-0 left-0 flex flex-col items-center justify-center text-white text-center px-8 pt-20">
       <h1 className="font-bold text-3xl md:text-5xl mb-10">
         Virtual Banking Made Easy
       </h1>
@@ -31,7 +31,7 @@ const HeroSection = () => (
         next payment
       </p>
       <Link to="signup">
-        <Button className="group w-48">
+        <Button className="group">
           <span className="mr-2">Get started</span>
           <MdKeyboardArrowRight className="inline group-hover:hidden w-4 h-4" />
           <MdArrowForward className="hidden group-hover:inline w-4 h-4" />
