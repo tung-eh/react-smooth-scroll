@@ -1,9 +1,9 @@
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { animateScroll as scroll } from 'react-scroll'
 
 import Button from '../Button'
+import Logo from '../Logo'
 import Navs from './Navs'
 
 const Navbar = () => {
@@ -32,13 +32,7 @@ const Navbar = () => {
     >
       <Navs md />
       <div className="flex items-center justify-between w-full max-w-screen-xl px-8">
-        <Link
-          className="font-bold text-2xl"
-          to="/"
-          onClick={() => scroll.scrollToTop()}
-        >
-          dolla
-        </Link>
+        <Logo />
         <Link className="hidden md:block" to="/signin">
           <Button>Sign In</Button>
         </Link>
