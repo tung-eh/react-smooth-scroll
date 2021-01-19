@@ -1,6 +1,6 @@
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Button from '../Button'
 import Navs from './Navs'
@@ -9,28 +9,25 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
   const toggle = () => setOpen((x) => !x)
 
-  const ref = useRef()
   const [heroin, setHeroin] = useState(true) //inside Hero section
   useEffect(() => {
     const ioOptions = {
-      root: document.querySelector('#hero'),
-      threshold: 1,
+      threshold: Array.from(Array(11).keys()).map((x) => x * 0.1),
     }
     const ioCallback = (entries, observer) => {
       const entry = entries[0]
-      setHeroin(entry.isIntersection)
+      setHeroin(entry.isIntersecting && entry.intersectionRatio > 0.7)
     }
 
     const observer = new IntersectionObserver(ioCallback, ioOptions)
-    observer.observe(ref.current)
+    observer.observe(document.querySelector('#hero'))
   }, [])
 
   return (
     <nav
-      className={`sticky top-0 z-10 grid place-items-center text-white h-20 md:h-24 -mt-20 md:-mt-24 ${
+      className={`sticky top-0 z-10 grid place-items-center text-white transition duration-500 h-20 md:h-24 -mt-20 md:-mt-24 ${
         heroin ? '' : 'bg-black'
       }`}
-      ref={ref}
     >
       <Navs md />
       <div className="flex items-center justify-between w-full max-w-screen-xl px-8">
